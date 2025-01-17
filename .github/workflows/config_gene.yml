@@ -150,10 +150,7 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P2_SH
         #cat package/lean/default-settings/files/zzz-default-settings
 
-        rm -rf feeds/luci/applications/luci-app-upnp
-        git clone -b openwrt-23.05 https://github.com/openwrt/luci.git luci1
-        cp -r luci1/applications/luci-app-upnp feeds/luci/applications/
-        rm -rf luci1
+
         
         
     - name: SSH链接管理
