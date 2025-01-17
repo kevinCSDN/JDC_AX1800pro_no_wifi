@@ -129,10 +129,7 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
-        rm -rf feeds/luci/applications/luci-app-upnp
-        git clone -b openwrt-23.05 https://github.com/openwrt/luci.git luci1
-        cp -r luci1/applications/luci-app-upnp feeds/luci/applications/
-        rm -rf luci1
+
         
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -167,7 +164,10 @@ jobs:
        
         rm -rf package/feeds/small/v2ray-geodata
        
-
+        rm -rf feeds/luci/applications/luci-app-upnp
+        git clone -b openwrt-23.05 https://github.com/openwrt/luci.git luci1
+        cp -r luci1/applications/luci-app-upnp feeds/luci/applications/
+        rm -rf luci1
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
