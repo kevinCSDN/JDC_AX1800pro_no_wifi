@@ -31,8 +31,9 @@ on:
         default: 'true'
 
 env:
-  REPO_URL: https://github.com/LiBwrt/openwrt-6.x.git
-  REPO_BRANCH: main
+  #REPO_URL: https://github.com/LiBwrt/openwrt-6.x.git
+  REPO_URL: https://github.com/qosmio/openwrt-ipq.git
+  REPO_BRANCH: 24.10-nss
   FEEDS_CONF: feeds.conf.default
   PATCHES_FILE_1: patches/0001-show-soc-status-on-luci.patch
   CONFIG_FILE: .config
@@ -127,6 +128,11 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
+        
+        rm -rf feeds/luci/applications/luci-app-upnp
+        git clone -b openwrt-23.05 https://github.com/openwrt/luci.git luci1
+        cp -r luci1/applications/luci-app-upnp feeds/luci/applications/
+        rm -rf luci1
         
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
