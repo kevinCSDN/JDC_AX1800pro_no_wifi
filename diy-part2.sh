@@ -16,7 +16,11 @@
 #替换为新版本golang
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-#./scripts/feeds install -a -f
+rm -rf feeds/luci/applications/luci-app-upnp
+git clone -b openwrt-23.05 https://github.com/openwrt/luci.git luci1
+cp -r luci1/applications/luci-app-upnp feeds/luci/applications/
+rm -rf luci1
+./scripts/feeds install -a -f
 
 
 
