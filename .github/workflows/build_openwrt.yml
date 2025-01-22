@@ -33,7 +33,7 @@ on:
 env:
   #REPO_URL: https://github.com/LiBwrt/openwrt-6.x.git
   REPO_URL: https://github.com/qosmio/openwrt-ipq.git
-  REPO_BRANCH: 24.10-nss
+  REPO_BRANCH: main-nss
   FEEDS_CONF: feeds.conf.default
   PATCHES_FILE_1: patches/0001-show-soc-status-on-luci.patch
   CONFIG_FILE: .config
